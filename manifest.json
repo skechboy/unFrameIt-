@@ -1,0 +1,36 @@
+{
+	"name": "unFrameIt!",
+	"version": "0.1",
+	"manifest_version": 2,
+	"description": "Stop being framed!",
+	"icons": 
+	{ 
+		"128": "images/icon.png"
+	},
+
+	
+	"permissions": 
+	[
+		"http://www.time.mk/*","http://grid.mk/*","http://daily.mk/*",
+		"http://blogirame.mk/*", "http://bukvar.mk/*", "http://off.net.mk/*",
+		"http://on.net.mk/*"
+	],
+
+	"web_accessible_resources": 
+	[
+		"js/unframeit.js"
+	],
+
+	"content_scripts": 
+	[
+		{
+			"matches": [
+							"http://www.time.mk/read/*","http://grid.mk/read/news/*","http://daily.mk/forward/*",
+							"http://blogirame.mk/g/*", "http://bukvar.mk/news/*", "http://off.net.mk/links/nabrzinka/*",
+							"http://on.net.mk/shortcut.php*"
+						], 
+			"js": ["js/inject.js"],
+			"run_at": "document_end"
+		}
+	]
+}
